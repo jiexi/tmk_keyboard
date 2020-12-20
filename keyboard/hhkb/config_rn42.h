@@ -37,18 +37,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 /* key combination for command */
-#define IS_COMMAND() (keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT))) 
+#define IS_COMMAND() (keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)))
 
 
 /* period of tapping(ms) */
 #define TAPPING_TERM    300
 /* tap count needed for toggling a feature */
-#define TAPPING_TOGGLE  5
+#define TAPPING_TOGGLE  3
 /* Oneshot timeout(ms) */
 #define ONESHOT_TIMEOUT 300
 
-/* Boot Magic salt key: Space */
-#define BOOTMAGIC_KEY_SALT      KC_SPACE
+/* Boot Magic salt key: Grave */
+#define BOOTMAGIC_KEY_SALT KC_GRAVE
 
 /* power control of key switch board */
 #define HHKB_POWER_SAVING

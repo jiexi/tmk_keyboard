@@ -36,7 +36,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * |------------------------------------------------------`    |
      * |Caps  |Ply|Stp|Prv|Nxt|   |   |   |   |   |Ins|Hom|PgU|    |
      * |-----------------------------------------------------------|
-     * |       |   |   |   |   |   |   |   |   |Del|End|PgD|   |   |
+     * |       |BiD|BiU|   |   |   |   |   |   |Del|End|PgD|   |   |
      * |-----------------------------------------------------------|
      * |Fn1||   |   |   |   |         |   |   |   |   ||   |   |   |
      * `-----------------------------------------------------------'
@@ -44,29 +44,29 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
     KEYMAP_JP(PWR, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, INS, DEL, \
               TRNS,MUTE,VOLD,VOLU,  NO,  NO,  NO,  NO,  NO,  NO,PSCR,SLCK,PAUS, \
               CAPS,MPLY,MSTP,MPRV,MNXT,  NO,  NO,  NO,  NO,  NO,INS,HOME,PGUP,TRNS, \
-              TRNS,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO, DEL, END,PGDN,TRNS,TRNS, \
+              TRNS,BRTD,BRTI,  NO,  NO,  NO,  NO,  NO,  NO, DEL, END,PGDN,TRNS,TRNS, \
               FN1 ,TRNS,TRNS,TRNS,TRNS,     TRNS,     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS),
 
     /* Layer 2: Movement mode (JIS BSLS)
      * ,-----------------------------------------------------------.
      * |   |   |   |   |   |   |   |   |   |   |   |   |   |   |BS |
      * |-----------------------------------------------------------|
-     * |     |   |McU|   |   |   |   |   |   |   |Mb4|Mb5|   |     |
+     * |     |MwL|McU|MwR|MwU|   |   |   |   |   |Mb4|Mb5|   |     |
      * |------------------------------------------------------`    |
-     * |Esc   |McL|McD|McR|   |   |   |   |   |Mb1|Mb3|Mb2|Fn3|    |
+     * |Esc   |McL|McD|McR|MwD|   |   |   |   |Mb1|Mb3|Mb2|Fn3|    |
      * |-----------------------------------------------------------|
-     * |       |   |   |   |   |   |   |   |   |Ma0|Ma1|Ma2|MwU|   |
+     * |       |   |   |   |   |   |   |   |   |Ma0|Ma1|Ma2|   |   |
      * |-----------------------------------------------------------|
-     * |   ||   |   |   |   |         |   |   |   |   ||MwL|MwD|MwR|
+     * |   ||   |   |   |   |         |   |   |   |   ||   |   |   |
      * `-----------------------------------------------------------'
      */
     KEYMAP_JP(NO , NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,   NO,  NO,  NO,  NO,BSPC, \
-              TRNS,  NO,MS_U,  NO,  NO,  NO,  NO,  NO,  NO,  NO,BTN4,BTN5,  NO, \
-              ESC ,MS_L,MS_D,MS_R,  NO,  NO,  NO,  NO,  NO,BTN1,BTN3,BTN2,FN3,TRNS, \
-              TRNS,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,ACL0,ACL1,ACL2,WH_U,TRNS, \
-              NO  ,TRNS,TRNS,TRNS,TRNS,     TRNS,     TRNS,TRNS,TRNS,TRNS,WH_L,WH_D,WH_R),
+              TRNS,WH_L,MS_U,WH_R,WH_U,  NO,  NO,  NO,  NO,  NO,BTN4,BTN5,  NO, \
+              ESC ,MS_L,MS_D,MS_R,WH_D,  NO,  NO,  NO,  NO,BTN1,BTN3,BTN2,FN3,TRNS, \
+              TRNS,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,ACL0,ACL1,ACL2,  NO,TRNS, \
+              NO  ,TRNS,TRNS,TRNS,TRNS,     TRNS,     TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS),
 
-    /* Layer 3: Math mode (JIS RO)
+    /* Layer 3: Numpad mode (JIS RO)
      * ,-----------------------------------------------------------.
      * |   |   |   |   |   |   |   |   | . | 0 |   |   |   |   |BS |
      * |-----------------------------------------------------------|
@@ -92,9 +92,9 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
  * Fn action definition
  */
 #ifdef KEYMAP_SECTION_ENABLE
-const uint16_t fn_actions[] __attribute__ ((section (".keymap.fn_actions"))) = {
+const action_t fn_actions[] __attribute__ ((section (".keymap.fn_actions"))) = {
 #else
-const uint16_t fn_actions[] PROGMEM = {
+const action_t fn_actions[] PROGMEM = {
 #endif
     [0]  = ACTION_LAYER_TAP_TOGGLE(1),
     [1]  = ACTION_LAYER_INVERT(1, ON_RELEASE),
