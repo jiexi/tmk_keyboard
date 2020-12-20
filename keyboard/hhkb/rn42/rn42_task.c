@@ -34,7 +34,7 @@ void rn42_task_init(void)
 {
     battery_init();
 #ifdef NKRO_ENABLE
-    rn42_nkro_last = keyboard_nkro;
+    bool rn42_nkro_last = keyboard_nkro;
 #endif
 }
 
@@ -78,7 +78,7 @@ void rn42_task(void)
             if (host_get_driver() != &rn42_driver) {
                 clear_keyboard();
 #ifdef NKRO_ENABLE
-                rn42_nkro_last = keyboard_nkro;
+                bool rn42_nkro_last = keyboard_nkro;
                 keyboard_nkro = false;
 #endif
                 host_set_driver(&rn42_driver);
@@ -87,7 +87,7 @@ void rn42_task(void)
             if (host_get_driver() != &lufa_driver) {
                 clear_keyboard();
 #ifdef NKRO_ENABLE
-                keyboard_nkro = rn42_nkro_last;
+                bool keyboard_nkro = rn42_nkro_last;
 #endif
                 host_set_driver(&lufa_driver);
             }

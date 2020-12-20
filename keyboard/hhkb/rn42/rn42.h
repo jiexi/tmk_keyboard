@@ -4,8 +4,8 @@
 #include <stdbool.h>
 #include "host_driver.h"
 
-host_driver_t rn42_driver;
-host_driver_t rn42_config_driver;
+extern host_driver_t rn42_driver;
+extern host_driver_t rn42_config_driver;
 
 void rn42_init(void);
 int16_t rn42_getc(void);
